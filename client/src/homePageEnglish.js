@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getData, sendData } from './api';
-import { useForm } from "react-cool-form"
 import "./styles.css";
 import invitation_english from './invitation_english.jpg'
 import invitation_hebrew from './invitation_hebrew.jpg'
@@ -28,10 +27,6 @@ export function HomePageEnglish() {
         comingCount = comingCount - 1;
         setComingCount(comingCount);
       }
-    }
-    function openComingWindow(){
-      setComing(true)
-      
     }
     const notComing = async() =>{
       setComing(false)
