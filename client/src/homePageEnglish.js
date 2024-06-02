@@ -29,7 +29,6 @@ export function HomePageEnglish() {
       }
     }
     const notComing = async() =>{
-      setComing(false)
       await sendData(0, id)
       navigate('/submitted')
     }
