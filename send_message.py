@@ -14,15 +14,16 @@ def twilio_message(csid, bdy, recipient, content_variables):
 
   message = client.messages.create(
     content_sid=csid,
-    messaging_service_sid=MESSAGING_SERVICE_ID,
+    messaging_service_sid=MESSAGING_SERVICE_SID,
     content_variables=content_variables,
-    to=f'whatsapp:{recipient}'
+    to=f'whatsapp:{recipient}',
   )
 
 
 def send_whatsapp(record):
     msg_counter = 0
     phone_number = record['fields']['phone_number']
+    print(phone_number)
     id = record['id']
     twilio_dict ={ENGLISH_INVITATION_TEMPLATE: 'Hope to See you there! Please click the link to RSVP :)',
                   HEBREW_INVITATION_TEMPLATE:'נשמח לראותכם! אנא לחץ/י על הקישור כדי להגיב :)',
@@ -63,8 +64,7 @@ if __name__ == "__main__":
     ENGLISH_INVITATION_TEMPLATE =   os.getenv('ENGLISH_INVITATION_TEMPLATE')
     HEBREW_INVITATION_TEMPLATE =    os.getenv('HEBREW_INVITATION_TEMPLATE')
     SITE_ADDRESS =                  os.getenv('SITE_ADDRESS')
-    MESSAGING_SERVICE_ID =          os.getenv('MESSAGING_SERVICE_ID')
-
+    MESSAGING_SERVICE_SID =          os.getenv('MESSAGING_SERVICE_SID')
 
      # Initialize image list
     img_list = [english_invation_path, hebrew_invitation_path]
@@ -77,4 +77,5 @@ if __name__ == "__main__":
 
     # Print the records
     for record in records:
+        
         send_whatsapp(record)
