@@ -11,6 +11,10 @@ Populate the first 2 columns, Name and phone_number, with guests to invite.
 
 ![Screenshot](static/airtable.png)
 
+
+The other columns will be autopopulated when the code is executed and when invitess respond.
+
+
 ## Send Invitations Via Whatsapp
 send_message.py sends invitations via twilio to all of your guests whatsapp numbers who do not have column invited ==1 . Each invitation includes a link for the guest to rsvp. After
 the invitation is sent to a guest, the invited column is populated with 1. 
